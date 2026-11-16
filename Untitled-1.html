@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Water Tank Monitoring System</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --primary: #1f6feb;
+      --secondary: #0f172a;
+      --accent: #2dd4bf;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dfe7f1;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef5ff, #f8fbff);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+      color: white;
+      padding: 40px 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(31, 111, 235, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      margin: 0 0 10px;
+      font-size: 2.3rem;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h2 {
+      color: var(--secondary);
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .status-box {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: #ecfdf5;
+      border-left: 5px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    .status-box.warning {
+      background: #fff7ed;
+      border-left-color: var(--warning);
+    }
+
+    .status-box.alert {
+      background: #fef2f2;
+      border-left-color: var(--danger);
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .header h1 { font-size: 1.8rem; }
+      .container { padding: 14px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Smart Water Tank Monitoring System</h1>
+      <p>Arduino-based project for automatic water level detection and alert system</p>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Project Overview</h2>
+        <p>
+          This project is designed to monitor the water level in a tank using an ultrasonic sensor,
+          display the information on an LCD screen, and trigger a buzzer when the tank reaches a warning
+          or critical level.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Objectives</h2>
+        <ul>
+          <li>Measure water level automatically and accurately.</li>
+          <li>Display tank status on a 16x2 LCD display.</li>
+          <li>Alert the user when the water is near full or at risk.</li>
+          <li>Reduce manual checking and improve water management.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Components Used</h2>
+        <ul>
+          <li>Arduino UNO</li>
+          <li>HC-SR04 Ultrasonic Sensor</li>
+          <li>16x2 I2C LCD Display</li>
+          <li>Buzzer</li>
+          <li>Jumper wires and breadboard</li>
+          <li>Power supply</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Working Principle</h2>
+        <p>
+          The ultrasonic sensor sends out a sound pulse and measures the time for the echo to return.
+          Using this time, the Arduino calculates the distance between the sensor and the water surface.
+          The measured value is compared with preset thresholds to determine the water level.
+        </p>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>System Logic</h2>
+        <ul>
+          <li><span class="highlight">Trig Pin:</span> 9</li>
+          <li><span class="highlight">Echo Pin:</span> 10</li>
+          <li><span class="highlight">Buzzer Pin:</span> 8</li>
+          <li><span class="highlight">LCD:</span> I2C 16x2 display</li>
+          <li><span class="highlight">Warning Level:</span> 90%</li>
+          <li><span class="highlight">Alarm Level:</span> 95%</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Applications</h2>
+        <ul>
+          <li>Household water tanks</li>
+          <li>Industrial tank monitoring</li>
+          <li>Smart irrigation system</li>
+          <li>Water storage management</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Conclusion</h2>
+      <p>
+        The Smart Water Tank Monitoring System is a practical embedded project that combines sensor-based
+        measurement, Arduino control, and alert systems to provide an efficient and low-cost solution for
+        monitoring water levels automatically.
+      </p>
+
+      <div class="status-box">
+        <span>✅</span>
+        <span>System status: Water tank monitoring and warning system active</span>
+      </div>
+
+      <div class="status-box warning">
+        <span>⚠️</span>
+        <span>Warning level: Tank is close to full capacity</span>
+      </div>
+
+      <div class="status-box alert">
+        <span>🚨</span>
+        <span>Alarm level: Critical water level reached</span>
+      </div>
+    </section>
+
+    <div class="footer">
+      Project Report generated for Arduino Smart Water Tank Monitoring System
+    </div>
+  </div>
+</body>
+</html>
